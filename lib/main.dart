@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/contact.dart';
 import 'package:my_app/home_page.dart';
+import 'package:my_app/person_Data.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +33,13 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  int currentPage = 1;
+  int currentPage = 0;
+  List<Widget> pages = const [
+    HomePage(),
+    // LearnPage(),
+    PersonPage(),
+    ContactPart(),
+  ] ;
   @override
   Widget build(BuildContext context) {
     return    Scaffold(
@@ -40,7 +48,7 @@ class _RootPageState extends State<RootPage> {
 
          
       ),
-      body: const HomePage(),
+      body: pages[currentPage],
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           debugPrint('clicked');
